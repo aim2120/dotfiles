@@ -1,0 +1,80 @@
+[user]
+  email = annalise.mariottini@columbia.edu
+  user = Annalise Mariottini
+	name = Annalise Mariottini
+	signingkey = 0870778578674513
+[includeIf "gitdir:~/zillow/"]
+  path = ~/zillow/.gitconfig
+[init]
+  defaultBranch = main
+[core]
+	excludesfile = /Users/annalisem/.gitignore
+[tag]
+	forcesignannotated = false
+[pull]
+	rebase = false
+[alias]
+    a = add
+    aa = add .
+    br = branch
+    bra = branch --all
+    curr = branch --show-current
+    hash = rev-parse HEAD
+    co = checkout
+    cob = checkout -b
+    cleanup = clean -df
+    drynuke = clean -xdn
+    nuke = clean -xdf
+    cm = commit -m
+    cma = commit --amend
+    del = branch -D
+    delrem = push origin --delete
+    d = diff
+    dnl = -c delta.line-numbers=false diff
+    dh = diff HEAD
+    l = log --oneline
+    last = log -1 HEAD --stat
+    m = merge
+    pusho = push origin 
+    pullo = pull origin
+    pushoh = push origin HEAD
+    pulloh = pull origin HEAD
+    rb = rebase
+    rename = branch -m
+    soft = reset --soft
+    mixed = reset --mixed
+    hard = reset --hard
+    undo = reset --hard HEAD
+    st = status
+    top = rev-parse --show-toplevel
+    main = rev-parse --abbrev-ref origin/HEAD
+    rr = !git restore --staged $1 && git restore $1
+[commit]
+	gpgsign = true
+
+[core]
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true    # use n and N to move between diff sections
+    light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+    line-numbers = true
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    colorMoved = default
+
+[branch "main"]
+        remote = origin
+        pushRemote = no-push-to-main
+        merge = refs/heads/main
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
