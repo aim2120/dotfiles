@@ -1,0 +1,11 @@
+#!/bin/bash
+
+export GITLAB_PERSONAL_ACCESS_TOKEN="{{ .gitlab.personal_access_token }}"
+export GITHUB_PERSONAL_ACCESS_TOKEN="{{ .github.personal_access_token }}"
+export GITLAB_API_TOKEN=$GITLAB_PERSONAL_ACCESS_TOKEN
+export GITLAB_API_URL="{{ .gitlab.api_url }}"
+export CI_API_V4_URL="{{ .gitlab.api_url }}"
+export ZCI_IOS_ARTIFACTORY_USERNAME="{{ .artifactory.username }}"
+export ZCI_IOS_ARTIFACTORY_PASSWORD="{{ .artifactory.password }}"
+export ZCI_IOS_ARTIFACTORY_URL="{{ .artifactory.url }}"
+export IOS_CLI_SPLUNK_TOKEN="{{ .splunk.token }}"

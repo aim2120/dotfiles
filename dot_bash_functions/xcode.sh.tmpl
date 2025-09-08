@@ -1,0 +1,5 @@
+#!/bin/bash
+
+export XCODES_USERNAME="{{ .xcodes.username }}"
+export XCODES_PASSWORD="{{ .xcodes.password }}"
+alias xcode_version="xcodebuild -version | grep 'Xcode' | awk '{print \$2}'"
