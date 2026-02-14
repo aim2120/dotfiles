@@ -1,0 +1,17 @@
+#!/bin/bash
+
+set -e
+
+TARGET_DIR="$HOME/git-subrepo"
+REPO_URL="https://github.com/ingydotnet/git-subrepo.git"
+
+# Check if git-subrepo already exists
+if [ -d "$TARGET_DIR" ]; then
+    echo "git-subrepo already exists at $TARGET_DIR"
+    exit 0
+fi
+
+echo "Cloning git-subrepo to $TARGET_DIR..."
+git clone "$REPO_URL" "$TARGET_DIR"
+
+echo "git-subrepo cloned successfully to $TARGET_DIR"

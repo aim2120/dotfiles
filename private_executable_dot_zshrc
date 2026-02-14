@@ -169,7 +169,7 @@ export PATH="$PATH:/Users/annalisem/.local/bin"
 export PATH="$HOME/.local/share/mise/shims:$PATH"
 
 # git subrepo
-source ~/External/git-subrepo/.rc
+source ~/git-subrepo/.rc
 
 # Source all .sh files in .bash_functions directory
 for file in ~/.bash_functions/*.sh; do
