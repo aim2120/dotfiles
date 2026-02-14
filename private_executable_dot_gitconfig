@@ -3,8 +3,6 @@
   user = Annalise Mariottini
 	name = Annalise Mariottini
 	signingkey = 0870778578674513
-[includeIf "gitdir:~/zillow/"]
-  path = ~/zillow/.gitconfig
 [init]
   defaultBranch = main
 [core]

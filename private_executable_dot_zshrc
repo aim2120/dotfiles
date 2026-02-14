@@ -15,9 +15,6 @@ else
 fi
 
 
-# Zillow Home Directory
-export GIT_ROOT=$HOME/zillow
-
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$HOME/Library/Python/3.8/bin:$PATH
@@ -120,7 +117,6 @@ autoload -U +X bashcompinit && bashcompinit
 # Personal convenience things
 export DERIVED_DATA=~/Library/Developer/Xcode/DerivedData
 export SPM_CACHE=~/Library/Caches/org.swift.swiftpm
-export ZILLOW=~/zillow
 export VSCODE="Visual Studio Code"
 export IOS_DESTINATION="platform=iOS Simulator,OS=18.5,name=iPhone 15 Pro"
 export IPHONE_DESTINATION="platform=iOS,name=iPhone"
@@ -154,13 +150,6 @@ alias dc="docker-compose"
 
 #tuist
 alias tgen="tuist generate --no-open"
-
-# ios cli
-export IOS_CLI_AUTO_UPGRADE=enabled
-export IOS_CLI_UPGRADE_ACCURACY=accurate
-
-# muter
-export MUTER_PATH=/Users/annalisem/zillow/muter
 
 # pipx
 export PATH="$PATH:/Users/annalisem/.local/bin"

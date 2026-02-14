@@ -8,7 +8,7 @@ This repository contains my personal dotfiles managed by [chezmoi](https://www.c
 - **Package Management**: Automated Homebrew package installation via Brewfile
 - **Secret Management**: Age-encrypted sensitive files and configuration
 - **Development Tools**: Pre-configured setups for Git, Xcode, Swift development
-- **API Integrations**: Environment setup for Bitwarden, DataDog, GitLab, Jira, and more
+- **API Integrations**: Environment setup for Bitwarden and more
 - **SSH Configuration**: Encrypted SSH keys and configurations
 
 ## Prerequisites
@@ -33,7 +33,7 @@ This repository contains my personal dotfiles managed by [chezmoi](https://www.c
 1. **Initialize chezmoi with this repository**:
 
    ```bash
-   chezmoi init --apply https://github.com/aim2120/dotfiles.git
+   chezmoi init --apply https://github.com/aim2120/dotfiles.git [--branch=<branch>]
    ```
 
    Pull large files in the chezmoi repo:
@@ -77,22 +77,10 @@ The following variables must be defined in your chezmoi data file (`~/.chezmoida
 ### API Keys and Tokens
 
 - `bitwarden.session` - Bitwarden CLI session key
-- `datadog.api_key` - DataDog API key
-- `datadog.app_key` - DataDog application key
-- `zephyr.api_token` - Zephyr Scale API token
-- `splunk.token` - Splunk HEC token
 
 ### Git Platform Tokens
 
-- `gitlab.personal_access_token` - GitLab personal access token
-- `gitlab.api_url` - GitLab API URL (e.g., `https://gitlab.example.com/api/v4`)
 - `github.personal_access_token` - GitHub personal access token
-
-### Artifactory Credentials
-
-- `artifactory.username` - Artifactory username
-- `artifactory.password` - Artifactory password
-- `artifactory.url` - Artifactory instance URL
 
 ### Apple Developer Tools
 
