@@ -1,0 +1,57 @@
+#!/bin/bash
+
+set -e
+
+# Clone powerlevel10k
+ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
+P10K_DIR="$ZSH_CUSTOM/themes/powerlevel10k"
+P10K_REPO="https://github.com/romkatv/powerlevel10k.git"
+
+if [ -d "$P10K_DIR" ]; then
+    echo "powerlevel10k already exists at $P10K_DIR"
+else
+    echo "Cloning powerlevel10k to $P10K_DIR..."
+    git clone --depth=1 "$P10K_REPO" "$P10K_DIR"
+    echo "powerlevel10k cloned successfully"
+fi
+
+# Install Meslo Nerd Font
+FONT_DIR="$HOME/Library/Fonts"
+FONT_BASE_URL="https://github.com/romkatv/powerlevel10k-media/raw/master"
+
+mkdir -p "$FONT_DIR"
+
+fonts=(
+    "MesloLGS NF Regular.ttf:MesloLGS%20NF%20Regular.ttf"
+    "MesloLGS NF Bold.ttf:MesloLGS%20NF%20Bold.ttf"
+    "MesloLGS NF Italic.ttf:MesloLGS%20NF%20Italic.ttf"
+    "MesloLGS NF Bold Italic.ttf:MesloLGS%20NF%20Bold%20Italic.ttf"
+)
+
+for font_pair in "${fonts[@]}"; do
+    font="${font_pair%%:*}"
+    url_encoded="${font_pair#*:}"
+    FONT_FILE="$FONT_DIR/$font"
+    if [ -f "$FONT_FILE" ]; then
+        echo "Font already exists: $font"
+    else
+        echo "Downloading $font..."
+        curl -fLo "$FONT_FILE" "$FONT_BASE_URL/$url_encoded"
+        echo "Installed: $font"
+    fi
+done
+
+echo "Meslo Nerd Font installation complete"
+
+# Import Terminal profile
+PROFILE_FILE="$HOME/Basic.terminal"
+if [ -f "$PROFILE_FILE" ]; then
+    echo "Importing Terminal profile..."
+    open "$PROFILE_FILE"
+    sleep 2
+    defaults write com.apple.Terminal "Default Window Settings" -string "Basic"
+    defaults write com.apple.Terminal "Startup Window Settings" -string "Basic"
+    echo "Terminal profile set. Restart Terminal to apply changes."
+else
+    echo "Note: Set Terminal font manually to MesloLGS NF in Preferences"
+fi
