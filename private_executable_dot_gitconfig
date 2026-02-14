@@ -32,6 +32,7 @@
     d = diff
     dnl = -c delta.line-numbers=false diff
     dh = diff HEAD
+    f = fetch
     l = log --oneline
     last = log -1 HEAD --stat
     m = merge
@@ -54,6 +55,7 @@
 
 [core]
     pager = delta
+	sshCommand = ssh -o ConnectTimeout=30
 
 [interactive]
     diffFilter = delta --color-only
@@ -73,8 +75,10 @@
         remote = origin
         pushRemote = no-push-to-main
         merge = refs/heads/main
+[http]
+	postBuffer = 157286400
 [filter "lfs"]
-	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+	clean = git-lfs clean -- %f
