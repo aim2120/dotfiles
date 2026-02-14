@@ -1,0 +1,16 @@
+#!/bin/bash
+
+set -e
+
+# Install Vundle
+VUNDLE_DIR="$HOME/.vim/bundle/Vundle.vim"
+VUNDLE_REPO="https://github.com/VundleVim/Vundle.vim.git"
+
+if [ -d "$VUNDLE_DIR" ]; then
+    echo "Vundle already exists at $VUNDLE_DIR"
+else
+    echo "Cloning Vundle to $VUNDLE_DIR..."
+    mkdir -p "$HOME/.vim/bundle"
+    git clone "$VUNDLE_REPO" "$VUNDLE_DIR"
+    echo "Vundle cloned successfully"
+fi
