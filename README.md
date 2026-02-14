@@ -72,7 +72,7 @@ This repository contains my personal dotfiles managed by [chezmoi](https://www.c
 
 ## Required Template Variables
 
-The following variables must be defined in your chezmoi configuration (`~/.config/chezmoi/chezmoi.toml`):
+The following variables must be defined in your chezmoi data file (`~/.chezmoidata.yaml`):
 
 ### API Keys and Tokens
 
@@ -163,7 +163,7 @@ chezmoi add --encrypt ~/.config/new-secret
 
 ### Adding New Template Variables
 
-1. Add the variable to your `chezmoi.toml` configuration
+1. Add the variable to your `~/.chezmoidata.yaml` file
 2. Use `{{ .category.variable_name }}` in template files
 3. Apply changes with `chezmoi apply`
 
@@ -172,7 +172,7 @@ chezmoi add --encrypt ~/.config/new-secret
 - All sensitive files are encrypted using age encryption
 - SSH keys and credentials are never stored in plain text
 - The age private key should be securely backed up
-- Template variables in `chezmoi.toml` are stored locally only
+- Template variables in `~/.chezmoidata.yaml` are stored locally only
 
 ## Troubleshooting
 
@@ -192,7 +192,7 @@ chezmoi apply
 
 If chezmoi reports missing template variables:
 
-1. Check your `~/.config/chezmoi/chezmoi.toml` file
+1. Check your `~/.chezmoidata.yaml` file
 2. Ensure all required variables are defined
 3. Verify the variable names match the template files
 
