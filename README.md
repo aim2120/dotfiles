@@ -23,6 +23,10 @@ This repository contains my personal dotfiles managed by [chezmoi](https://www.c
    ```bash
    brew install age
    ```
+5. **git-lfs**: Install git-lfs
+   ```bash
+   brew install git-lfs
+   ```
 
 ## Quick Start
 
@@ -32,42 +36,22 @@ This repository contains my personal dotfiles managed by [chezmoi](https://www.c
    chezmoi init --apply https://github.com/aim2120/dotfiles.git
    ```
 
-2. **Create the chezmoi configuration file** at `~/.config/chezmoi/chezmoi.toml`:
+   Pull large files in the chezmoi repo:
 
-   ```toml
-   [data]
-
-   [data.bitwarden]
-   session = "your_bw_session_key"
-
-   [data.datadog]
-   api_key = "your_datadog_api_key"
-   app_key = "your_datadog_app_key"
-
-   [data.zephyr]
-   api_token = "your_zephyr_scale_api_token"
-
-   [data.gitlab]
-   personal_access_token = "your_gitlab_pat"
-   api_url = "https://gitlab.example.com/api/v4"
-
-   [data.github]
-   personal_access_token = "your_github_pat"
-
-   [data.artifactory]
-   username = "your_artifactory_username"
-   password = "your_artifactory_password"
-   url = "https://your-artifactory-url"
-
-   [data.splunk]
-   token = "your_splunk_token"
-
-   [data.xcodes]
-   username = "your_apple_id"
-   password = "your_apple_id_password"
+   ```bash
+   cd .local/share/chezmoi
+   git lfs update
    ```
 
-3. **Set up the age encryption key**: The setup script will automatically decrypt the age key on first run.
+   Then go back to the home directory:
+
+   ```bash
+   cd ~
+   ```
+
+2. **Create the chezmoi data file** at `~/.chezmoidata.yaml` (find this in Bitwarden)
+
+3. **Set up the age encryption key** at `~/.config/chezmoi/key.txt` (find this on old machine or in Bitwarden)
 
 4. **Apply the configuration**:
 
